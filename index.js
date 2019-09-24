@@ -9,11 +9,8 @@ const secret = speakeasy.generateSecret({ length: 20 });
 
 var code = null;
 // Generate a QRCode Image
-qrCode.toDataURL(secret.otpauth_url, (err, image) => {
+qrCode.toString(secret.otpauth_url, { type: 'terminal' }, (err, image) => {
   console.log(image);
-  // https://www.site24x7.com/tools/datauri-to-image.html
-  // Use this website to render a QRCode image
-  // TODO - Render QRCode on Terminal
 });
 
 setInterval(() => {
